@@ -29,4 +29,6 @@ public class TestFuzzyFinder {
     ArrayList<Fuzzy> fuzzies = generator.sortedRainbowFuzzies();
     assertEquals("purple", fuzzies.getFirst().color);
   }
+
+
 }
