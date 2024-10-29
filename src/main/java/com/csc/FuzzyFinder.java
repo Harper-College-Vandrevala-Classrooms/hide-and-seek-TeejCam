@@ -5,7 +5,7 @@ import java.util.List;
 public class FuzzyFinder {
   // Your code goes here!
 
-  private static int linearSearch(List<Fuzzy> fuzzies) 
+  public static int linearSearch(List<Fuzzy> fuzzies) 
   {
     for(int i=0; i < fuzzies.size(); i++) {
       if(fuzzies.get(i).color.equals("gold")) {
@@ -15,7 +15,7 @@ public class FuzzyFinder {
     return -1;
   }
 
-  private static int binarySearch(List<Fuzzy> fuzzies)
+  public static int binarySearch(List<Fuzzy> fuzzies)
   {
     int low = 0;
     int high = fuzzies.size() - 1;
@@ -54,6 +54,13 @@ public class FuzzyFinder {
     int testTwo = finder.binarySearch(sortedFuzzies);
     int testThree = finder.linearSearch(randomFuzzies);
     int testFour = finder.binarySearch(randomFuzzies);
+
+    System.out.println(testOne);
+    System.out.println(testTwo);
+    System.out.println(testThree);
+    System.out.println(testFour);
+
+
 
   }
 }

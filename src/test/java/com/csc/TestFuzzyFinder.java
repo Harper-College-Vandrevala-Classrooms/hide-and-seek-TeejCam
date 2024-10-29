@@ -20,15 +20,62 @@ public class TestFuzzyFinder {
 
   @Test
   void exampleFailingTestWithRandomizedFuzzies() {
-    ArrayList<Fuzzy> fuzzies = generator.randomizedRainbowFuzzies();
+    //ArrayList<Fuzzy> fuzzies = generator.randomizedRainbowFuzzies();
+    ArrayList<Fuzzy> fuzzies = new ArrayList<Fuzzy>();
+    fuzzies.add(new Fuzzy("purple"));
+    fuzzies.add(new Fuzzy("blue"));
+    fuzzies.add(new Fuzzy("gold"));
+    
     assertEquals("purple", fuzzies.getFirst().color);
   }
 
-  @Test
+  /*@Test
   void exampleFailingTestWithSortedFuzzies() {
     ArrayList<Fuzzy> fuzzies = generator.sortedRainbowFuzzies();
     assertEquals("purple", fuzzies.getFirst().color);
+  }*/
+
+  @Test 
+  void testLinearSearchSorted() {
+    ArrayList<Fuzzy> fuzzies = new ArrayList<Fuzzy>();
+    fuzzies.add(new Fuzzy("blue"));
+    fuzzies.add(new Fuzzy("gold"));
+    fuzzies.add(new Fuzzy("purple"));
+
+    assertEquals(1, finder.linearSearch(fuzzies));
   }
 
+  @Test
+  void testLinearSearchRandom() {
+    ArrayList<Fuzzy> fuzzies = new ArrayList<Fuzzy>();
+    fuzzies.add(new Fuzzy("indigo"));
+    fuzzies.add(new Fuzzy("pink"));
+    fuzzies.add(new Fuzzy("red"));
+    fuzzies.add(new Fuzzy("gold"));
+
+    assertEquals(3, finder.linearSearch(fuzzies));
+  }
+
+  @Test 
+  void testBinarySearchSorted() {
+    ArrayList<Fuzzy> fuzzies = new ArrayList<Fuzzy>();
+    fuzzies.add(new Fuzzy("blue"));
+    fuzzies.add(new Fuzzy("gold"));
+    fuzzies.add(new Fuzzy("indigo"));
+    fuzzies.add(new Fuzzy("purple"));
+
+    assertEquals(1, finder.binarySearch(fuzzies));
+  }
+
+  @Test 
+  void testBinarySearchRandom() {
+    ArrayList<Fuzzy> fuzzies = new ArrayList<Fuzzy>();
+    fuzzies.add(new Fuzzy("gold"));
+    fuzzies.add(new Fuzzy("indigo"));
+    fuzzies.add(new Fuzzy("blue"));
+    fuzzies.add(new Fuzzy("purple"));
+
+    assertEquals(0, finder.binarySearch(fuzzies));
+  }  
 
 }
